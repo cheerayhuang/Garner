@@ -11,12 +11,16 @@ class thank {
     public:
         thank(int i) : n(i) {} 
        
-        friend ostream& operator <<(ostream& os, thank& th) 
-        {
-            return os << "thank user " << th.n << endl; 
-        }
-
+        friend ostream& operator <<(ostream& os, thank& th) ;
+            
 };
+
+
+ostream& operator << (ostream &os, thank& th) 
+
+{
+    return os << "thank user " << th.n << endl; 
+}
 
 
 int main() 
