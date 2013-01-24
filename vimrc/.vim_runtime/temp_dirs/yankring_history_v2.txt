@@ -1,0 +1,45 @@
+#,v
+e,v
+),v
+c,v
+ ,v
+>,v
+T,v
+O,v
+t,v
+,V
+void func2(char); ,V
+    int i = 5; ,V
+    friend int func(int); ,V
+    //template <typename T> ,V
+int func(int); ,V
+int func(T x);,V
+template <typename T> ,V
+typename ,v
+    cout << a.i << endl; ,V
+template <typename T> T func(T x, A a) {    cout << "hello world" << endl;     cout << a.i << endl; },v
+/,v
+/*TODO: int  */ ,V
+// TODO:  ,V
+#include <iostream> using namespace std; ,V
+'fin' "int " ,V
+#include ,V
+y,v
+d,v
+4,v
+    ,V
+",v
+k,v
+set background=dark,V
+a,v
+aksea,v
+blue ,v
+" Enable syntax highlighting,V
+syntax enable ,V
+set cursorline,V
+set background=light,V
+r,v
+s,v
+E,v
+,v
+        fclose(fp); ,V
