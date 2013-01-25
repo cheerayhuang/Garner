@@ -8,7 +8,7 @@ int main()
     int i = 3; 
     int j = 4; 
 
-    cout << min(3, 4) << endl; 
+    cout << our::min(3, 4) << endl; 
 
     return 0;
 }
