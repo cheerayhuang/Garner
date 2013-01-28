@@ -10,10 +10,13 @@ public:
     void func1() { cout << "func1 " << endl; }
     void func2() { cout << "func2 " << endl; } 
 
-    // in gcc, you can use virtual function in template... NB!
     virtual void func3() {} 
-};
 
+    // template function can't be vitualized. 
+    // template <typename T1> 
+    // virtual void func4() {} 
+    
+};
 
 
 template <typename T> 
