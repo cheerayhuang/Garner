@@ -37,10 +37,10 @@ class Derived : public Base<D> {
 
 int main() 
 {
-  /*  Derived <double> derived; 
+    Derived <double> derived; 
     derived.func(); 
 
     cout << derived.base_field << endl; 
-*/
+
     return 0; 
 }
