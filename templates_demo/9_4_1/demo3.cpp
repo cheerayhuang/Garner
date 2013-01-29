@@ -20,6 +20,8 @@ class Derived : public Base {
         
         void func() { this->base_field = 1001; 
             Base :: base_field = 1003; 
+
+            base_field = 1004; 
         
         }
         
