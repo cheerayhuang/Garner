@@ -11,6 +11,14 @@ void func<>(int a) { cout << "int!" << endl; }
 template 
 void func<double>(double a);
 
+
+template <typename T> 
+void func_in_class(T a) 
+{
+    cout << " func _in _class " << endl; 
+
+}
+
 int main()
 {
     func(5); 
