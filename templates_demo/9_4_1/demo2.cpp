@@ -31,14 +31,16 @@ class Derived : public Base<D> {
 
         void func2() { d_field = 1001; } // non-qualified dependant name, find it in definition. 
 
+ //       D d_field; 
+
 };
 
 int main() 
 {
-    Derived <double> derived; 
+  /*  Derived <double> derived; 
     derived.func(); 
 
     cout << derived.base_field << endl; 
-
+*/
     return 0; 
 }
