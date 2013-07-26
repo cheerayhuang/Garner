@@ -38,6 +38,7 @@ else
     let g:yankring_history_dir = '~/.vim_runtime/temp_dirs/'
 endif
 
+map <leader>yr: YRShow<cr>
 
 """"""""""""""""""""""""""""""
 " => CTRL-P
