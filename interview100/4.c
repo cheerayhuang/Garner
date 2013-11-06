@@ -59,6 +59,7 @@ int insert_tree(int data, tree_node_list **head, tree_node_list **tail)
     if (new_tail == NULL) {
         return -1;
     }
+    new_tail->next = NULL;
 
     if (t->left == NULL) {
         t->left = new_node;  
@@ -125,6 +126,35 @@ int find_path(tree *root, const int expect_sum)
     return 0;
 }
 
+int release_tree(tree *root) 
+{
+    if (root->left != NULL) {
+        release_tree(root->left);
+        root->left = NULL;
+    }
+
+    if (root->right != NULL) {
+        release_tree(root->right);
+        root->right = NULL;
+    }
+
+    free(root);
+
+    return 0;
+}
+
+int release_tree_node_list(tree_node_list *head, tree_node_list *tail)
+{
+    while (head != tail) {
+        tree_node_list *tmp = head; 
+        head = head->next; 
+        free(tmp);
+    }
+    free(tail);
+
+    return 0;
+}
+
 int main()
 {
     int inpute_data[] = {10, 5, 12, 4, 7};
@@ -161,6 +191,9 @@ int main()
     int res[100] = {0};
 
     find_path(root, expect_sum);
+
+    release_tree(root);
+    release_tree_node_list(head, tail);
 
     return 0;    
 }
