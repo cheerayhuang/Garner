@@ -36,27 +36,27 @@ int insert_tree(tree **root, int data)
 }
 
 
-int* postorder_tree(tree *root) 
+int postorder_tree(tree *root, int *res, int *index) 
 {
-    static int index = 0; 
-    static int res[100] = {0};
+    //static int index = 0; 
+    //static int res[100] = {0};
 
     if (root == NULL) {
-        return NULL;
+        return -1;
     }
 
     if (root->left != NULL) {
-        postorder_tree(root->left);
+        postorder_tree(root->left, res, index);
     }
 
     if (root->right != NULL) {
-        postorder_tree(root->right);
+        postorder_tree(root->right, res, index);
     }
 
-    res[index++] = root->data;
+    res[(*index)++] = root->data;
 
 
-    return res;
+    return 0;
 }
 
 int main()
@@ -71,16 +71,16 @@ int main()
             return -1;
         }
     }
-
-    int *post_order = {0};
-
-    post_order = postorder_tree(root); 
-    if (post_order == NULL) {
+    
+    int count = 0;
+    int post_order[100] = {0};
+    i = postorder_tree(root, post_order, &count); 
+    if (i != 0) {
         fprintf(stderr, "postorder iterate failed.\n");
         return -1;
     }
 
-    for(i = 0; i < 7; ++i) {
+    for(i = 0; i < count; ++i) {
         printf("%d ", post_order[i]);
     }
     printf("\n");
