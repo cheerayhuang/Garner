@@ -4,4 +4,4 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 
 ## import problmes
 
-14. solve josephus problmes with math formular.
+14. solve josephus problmes with math formular.(14th problem in above web site)
