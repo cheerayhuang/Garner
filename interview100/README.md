@@ -13,3 +13,8 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 
 2. 12th problem -- iterator a binary tree with layer-order.
    this sub-problem is solved by other tree problem. ex, in 11th problem.
+
+3. 16th problem -- write an copy construct to implement deep copy. 
+
+4. 17th problem -- convert an string to interger. 
+   this problem should be considered more carefully, handling many exceptions.
