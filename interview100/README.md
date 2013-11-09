@@ -10,6 +10,8 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 
 23. a classic problmes, a series of fibonacci ! (23th problem)
 
+25. 25th problem, encounter many times..
+
 ## ignored problems
 
 1. 8th problem -- calc the sum of 1..n without loop, condition statement and recursion.
@@ -24,5 +26,3 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
    this problem should be considered more carefully, handling many exceptions.
 
 5. 23th problem -- a series of fibonacci problem. it is also in import problems list.
-
-6. 24th problem -- stack operation.
