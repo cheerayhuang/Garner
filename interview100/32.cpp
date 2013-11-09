@@ -16,9 +16,12 @@ class B : public A {
 
 
 class C : public B {
+
+    static int const i = 10;
     public:
         C() {cout << "C()" << endl;}
 };
+
 
 int main()
 {
