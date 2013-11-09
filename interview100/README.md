@@ -28,3 +28,5 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 5. 23th problem -- a series of fibonacci problem. it is also in import problems list.
 
 6. 28th problem -- full permutation.
+
+7. 30th problem -- overload "=" operator, please NOTICE that using temp object can implement rleaseing memory automatically.
