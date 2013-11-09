@@ -14,6 +14,9 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 25. 25th problem, encounter many times..
     compute the total number of '1' from 1..n
 
+26. 34th problem. 'xor' is a good way!! 
+
+
 ## ignored problems
 
 1. 8th problem -- calc the sum of 1..n without loop, condition statement and recursion.

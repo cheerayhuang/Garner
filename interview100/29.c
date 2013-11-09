@@ -8,21 +8,21 @@ int is_even(int x) {
 
 int main() {
 
-    int inpute_data[] = {1, 2, 3, 6, 5, 11, 4, 9, 10, 8, 7};
+    int input_data[] = {1, 2, 3, 6, 5, 11, 4, 9, 10, 8, 7};
 
     int i = 0; 
     int j = -1;
     for (; i < 11; ++i) {
-        if (is_even(inpute_data[i]) == 0) {
+        if (is_even(input_data[i]) == 0) {
             j++;
-            int tmp = inpute_data[i];
-            inpute_data[i] = inpute_data[j];
-            inpute_data[j] = tmp;
+            int tmp = input_data[i];
+            input_data[i] = input_data[j];
+            input_data[j] = tmp;
         }
     }
 
     for (i = 0; i < 11; ++i) {
-        printf("%d ", inpute_data[i]);
+        printf("%d ", input_data[i]);
     }
     printf("\n");
     

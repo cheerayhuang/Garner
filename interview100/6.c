@@ -62,11 +62,11 @@ int postorder_tree(tree *root, int *res, int *index)
 int main()
 {
     tree *root = NULL;
-    int inpute_data[7] = {8, 6, 10, 9, 11, 5, 7};
+    int input_data[7] = {8, 6, 10, 9, 11, 5, 7};
     int i = 0; 
 
     for (i = 0; i < 7; ++i) {
-        if (insert_tree(&root, inpute_data[i]) != 0) {
+        if (insert_tree(&root, input_data[i]) != 0) {
             fprintf(stdout, "insert tree failed.\n");
             return -1;
         }
@@ -85,7 +85,7 @@ int main()
     }
     printf("\n");
 
-    int inpute_order[100] = {0};
+    int input_order[100] = {0};
 
     FILE *fin = fopen("6.in", "r");
     if (fin == NULL) {

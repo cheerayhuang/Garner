@@ -43,7 +43,7 @@ int delete_link_list(link_list *head, link_list *p) {
 
 int main(void) {
     
-    int inpute_data[] = {1,2,3,4,5,6};
+    int input_data[] = {1,2,3,4,5,6};
     int i = 0; 
     link_list *head = NULL;
     head = (link_list*)malloc(sizeof(link_list));
@@ -54,7 +54,7 @@ int main(void) {
     head->next = NULL;
 
     for (; i < 6; ++i) {
-        if (insert_link_list(head, inpute_data[i]) != 0) {
+        if (insert_link_list(head, input_data[i]) != 0) {
             fprintf(stderr, "insert data failed.\n");
             return -1;
         }

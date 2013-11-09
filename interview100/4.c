@@ -157,7 +157,7 @@ int release_tree_node_list(tree_node_list *head, tree_node_list *tail)
 
 int main()
 {
-    int inpute_data[] = {10, 5, 12, 4, 7};
+    int input_data[] = {10, 5, 12, 4, 7};
     int expect_sum = 22;
 
     tree_node_list *head = NULL;
@@ -176,13 +176,13 @@ int main()
         return -1;
     }
 
-    root->data = inpute_data[0]; 
+    root->data = input_data[0]; 
     head->tree_node = root; 
     tail = head;
     
     int i = 0; 
     for(i = 1; i < 5; ++i) {
-        if (insert_tree(inpute_data[i], &head, &tail) != 0) {
+        if (insert_tree(input_data[i], &head, &tail) != 0) {
             fprintf(stderr, "insert operation failed.");
             return -1;
         }

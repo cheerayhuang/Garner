@@ -80,18 +80,18 @@ int compute_depth(tree *root, int depth, int* max) {
 
 int main()
 {
-    int inpute_data[] = {10, 6, 14, 4, 12, 16};
+    int input_data[] = {10, 6, 14, 4, 12, 16};
     tree *root = NULL;
     root = init_tree();
     if (root == NULL) {
         fprintf(stderr, "init tree failed.\n");
         return -1;
     }
-    root->data = inpute_data[0];
+    root->data = input_data[0];
 
     int i = 1;
     for (; i < 6; ++i) {
-        if (insert_tree(root, inpute_data[i]) != 0) {
+        if (insert_tree(root, input_data[i]) != 0) {
             fprintf(stderr, "insert tree failed.\n");
             return -1;
         }
