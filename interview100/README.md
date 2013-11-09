@@ -26,3 +26,5 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
    this problem should be considered more carefully, handling many exceptions.
 
 5. 23th problem -- a series of fibonacci problem. it is also in import problems list.
+
+6. 28th problem -- full permutation.
