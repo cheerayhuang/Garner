@@ -5,12 +5,14 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 ## import problems
 
 14. solve josephus problmes with math formular.(14th problem in above web site)
+    f(n, m) = [f(n-1, m) + m] % n
 
 21. solve 21th problme, using "reverse"  (X^T Y^T)^T = YX
 
 23. a classic problmes, a series of fibonacci ! (23th problem)
 
 25. 25th problem, encounter many times..
+    compute the total number of '1' from 1..n
 
 ## ignored problems
 
@@ -30,3 +32,5 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 6. 28th problem -- full permutation.
 
 7. 30th problem -- overload "=" operator, please NOTICE that using temp object can implement rleaseing memory automatically.
+
+8. 31th problem -- use recursion to implement it. it is elegant.
