@@ -16,6 +16,8 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 
 26. 34th problem. 'xor' is a good way!! 
 
+39. 39th problem,  use a little complex recursion to solve it. space complexsity is o(1)
+
 
 ## ignored problems
 
@@ -43,3 +45,5 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 10. 40th problem -- handle '0' situation.
 
 11. 41th problem -- an odd sort - -!.
+
+12. 42th problem -- consider more carefully
