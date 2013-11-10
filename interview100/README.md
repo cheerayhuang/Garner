@@ -37,3 +37,7 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 7. 30th problem -- overload "=" operator, please NOTICE that using temp object can implement rleaseing memory automatically.
 
 8. 31th problem -- use recursion to implement it. it is elegant.
+
+9. 38th problem -- all permutation, or use high-precision to solve it.
+
+10. 40th problem -- handle '0' situation.
