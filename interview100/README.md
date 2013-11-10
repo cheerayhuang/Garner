@@ -47,3 +47,5 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 11. 41th problem -- an odd sort - -!.
 
 12. 42th problem -- consider more carefully
+
+13. 44th problem -- use recursion to solve it.
