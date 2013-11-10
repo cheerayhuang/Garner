@@ -41,3 +41,5 @@ give the solutions for the problems from [http://zhedahht.blog.163.com/](http://
 9. 38th problem -- all permutation, or use high-precision to solve it.
 
 10. 40th problem -- handle '0' situation.
+
+11. 41th problem -- an odd sort - -!.
