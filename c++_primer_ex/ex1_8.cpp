@@ -7,5 +7,8 @@ int main()
     cout << "/*" ; 
     cout << "*/" ; 
 
+    cout << /* "*/" */;
+    cout << /* "*/" /* "/*" */;
+
     return 0; 
 }
