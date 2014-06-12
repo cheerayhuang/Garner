@@ -1,6 +1,7 @@
 local StoreAction = class("StoreAction", cc.server.ActionBase)
 
 --[[
+--REQ
     { 
         "action" : "actionname", 
         "rawdata": {
@@ -10,6 +11,7 @@ local StoreAction = class("StoreAction", cc.server.ActionBase)
             {"key_n" : "val_n"}
         }
     }
+--
 --]]
 
 function StoreAction:ctor(app)
@@ -25,7 +27,7 @@ function StoreAction:ctor(app)
 end
 
 
-function StoreActoin:SaveObjAction(data) 
+function StoreAction:SaveObjAction(data) 
     assert(type(data) == "table", "data should be a table!")
     local mysql = self:getMysql()
     if mysql == nil then 
@@ -37,7 +39,7 @@ function StoreActoin:SaveObjAction(data)
         throw(ERR_SERVER_INVALID_PARAMETERS, "param(rawdata) is missed.")
     end
 
-    params = ConstructBody(rawdata)
+    params = self:ConstructParams(rawdata)
     mysql.insert("counter", params) 
 end 
 
@@ -47,10 +49,12 @@ end
 function StoreAction:DeleteObjAction(data)
 end
 
-local function ConstructParams(rawdata)
-    local sha1_bin = nil
+function StoreAction:ConstructParams(rawdata)
+    local sha1_bin
+    local bas64
     if ngx then 
         sha1_bin = ngx.sha1_bin
+        base64 = ngx.encode_base64
     else 
         throw(ERR_SERVER_UNKNOWN_ERROR, "ngx is nil")
     end
