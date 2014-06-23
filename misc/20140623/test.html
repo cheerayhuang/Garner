@@ -1,0 +1,123 @@
+<html>
+<head>
+<script>
+
+var ws = null;
+var msg_id = 0;
+
+function connect() {
+    if (ws !== null) return log('already connected');
+    ws = new WebSocket('ws://127.0.0.1:8088/test');
+    //ws = new WebSocket('ws://127.0.0.1:8088/websocket');
+    ws.onopen = function () {
+        log('connected');
+    };
+    ws.onerror = function (error) {
+        log(error);
+    };
+    ws.onmessage = function (e) {
+        log('recv: ' + e.data);
+    };
+    ws.onclose = function () {
+        log('disconnected');
+        ws = null;
+    };
+    return false;
+}
+
+function disconnect() {
+    if (ws === null) return log('already disconnected');
+    ws.close();
+    return false;
+}
+
+function del() {
+    if (ws === null) return log('please connect first');
+    var text = document.getElementById('text').value;
+    document.getElementById('text').value = "";
+    log('del: ' + text);
+
+    var data = {
+        "_msgid": msg_id, 
+        //"action": "Tests.index", 
+        "action":"Store.DeleteObj",
+        "id": text
+    }
+
+    /*data["_id_"] = msg_id
+      data["action"] = "Tests.index"    
+      data["rawdata"] = text 
+     */
+
+    var jsonData = JSON.stringify(data)
+    ws.send(jsonData);
+    msg_id = msg_id + 1
+
+    return false;
+}
+
+function send() {
+    if (ws === null) return log('please connect first');
+    var text = document.getElementById('text').value;
+    document.getElementById('text').value = "";
+    log('send: ' + text);
+
+    /*var data = {
+        "_msgid": msg_id, 
+        //"action": "Tests.index", 
+        "id": "5YLcfC99oGJcHpEwCdZVwrKVmTg=",
+        "action":"Store.FindObj",
+        "rawdata": [
+        {"key4" : text},
+        {"key3" : text}, 
+        {"key2" : text}, 
+        {"key1" : text}
+        ]
+    }*/
+
+    var data = {
+        "_msgid": msg_id, 
+        "action": "Store.FindObj", 
+        "property": "key2",
+        "property_value": "1111"
+    }
+
+    /*var data = {
+        "_msgid": msg_id, 
+        "action": "Store.CreateIndex",
+        "property": "key2"
+    }*/
+
+    var jsonData = JSON.stringify(data)
+        ws.send(jsonData);
+    msg_id = msg_id + 1
+        return false;
+}
+
+function log(text) {
+    var li = document.createElement('li');
+    li.appendChild(document.createTextNode(text));
+    document.getElementById('log').appendChild(li);
+    return false;
+}
+
+</script>
+
+</head>
+<body>
+  <form onsubmit="return send();">
+    <button type="button" onclick="return connect();">
+      Connect
+    </button>
+    <button type="button" onclick="return disconnect();">
+      Disconnect
+    </button>
+    <input id="text" type="text">
+    <button type="submit">Send</button>
+  </form>
+  <form onsubmit="return del();">
+      <button type="submit">Del</button>
+  </form>
+  <ol id="log"></ol>
+</body>
+</html>
