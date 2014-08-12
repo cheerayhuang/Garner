@@ -30,7 +30,8 @@ int main() {
     }
 
     for (auto beg = statics.begin(); beg != statics.end(); ++beg) {
-        cout << *beg << ' '; 
+    //for(auto beg : statics) {
+        cout << beg << ' '; 
     }
     cout << endl;
 
