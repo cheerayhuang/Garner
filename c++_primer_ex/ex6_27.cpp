@@ -16,8 +16,8 @@
 
 using namespace std; 
 
-void func(vector<int> l) {
-//void func(initializer_list<int> l) {
+//void func(vector<int> l) {
+void func(initializer_list<int> l) {
     
     int sum = 0;
     for (auto &i : l) {
