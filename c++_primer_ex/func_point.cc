@@ -19,7 +19,22 @@ typedef int func(int *, int);
 
 func* f1(int);
 
+template <class T1, class T2> 
+void foo() {
+
+    cout << "T1, T2" << endl;
+
+}
+
+template <class T1> 
+void foo() {
+    cout << "T1, int" << endl;
+}
+
 int main() {
+
+    foo<int>();
+    foo<int, int>();
     return 0;
 }
 

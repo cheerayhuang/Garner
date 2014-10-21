@@ -16,7 +16,17 @@
 
 using namespace std; 
 
+class Screen;
+
+class WindowMgr {
+    public: 
+        void Clear(Screen &s); 
+};
+
+
 class Screen {
+
+friend class WindowMgr;
 
 private:
 
@@ -31,6 +41,7 @@ private:
                 cout << endl;
             }
         }
+        Test t1 = 0;
     }
 
 public:
@@ -63,7 +74,12 @@ public:
 
         return *this;
     }
+
 };
+
+void WindowMgr :: Clear(Screen &s) {
+    s.contents = string(s.height * s.width, ' ');
+}
 
 int main() {
     Screen s{5, 5, 'X'};
