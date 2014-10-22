@@ -31,10 +31,21 @@ void foo() {
     cout << "T1, int" << endl;
 }
 
+constexpr int returnI(int j) {
+    return j;
+}    
+
 int main() {
 
     foo<int>();
     foo<int, int>();
+    
+    const int j = 5;
+    constexpr int i = returnI(j);
+
+    int k = 10; 
+    //constexpr int ii = returnI(k);
+
     return 0;
 }
 
