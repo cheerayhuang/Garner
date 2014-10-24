@@ -35,10 +35,18 @@ int main() {
             arr[itArr++] = i;
         }
         else {
-            flist1.insert_after(flist1.before_begin(), i);
+            //flist1.insert_after(flist1.before_begin(), i);
+            flist1.push_front(i);
             vec.push_back(i);
         }
     }
+
+    forward_list<int> flist2(10, 1); 
+
+    list<vector<int>> list2(1);
+    list2.emplace_front(10, 1);
+
+
     return 0;
 }
 
