@@ -18,7 +18,7 @@ int main() {
         words.push_back(str);
     }
 
-    auto pos = partition(words.begin(), words.end(), func);
+    auto pos = stable_partition(words.begin(), words.end(), func);
 
     while (pos != words.end()) {
         cout << *pos << " ";
