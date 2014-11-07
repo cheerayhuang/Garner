@@ -1,0 +1,10 @@
+hello
+word
+cat
+world
+dog
+sleep
+time
+get
+set
+here
