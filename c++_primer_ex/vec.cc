@@ -3,35 +3,35 @@
  * Copyright (c) 2014 Nibirutech, Inc. All Rights Reserved
  * www.Nibirutech.com
  *
- * @file: lamabda2.cc
+ * @file: vec.cc
  * @author: Huang Qiyu
  * @email: huangqiyu@chukong-inc.com
- * @date: 11-07-2014 10:00:50
+ * @date: 08-23-2015 12:45:38
  * @version $Revision$
  *
  **************************************************************************/
 
+#include <vector>
 #include <iostream>
+#include <list>
 
 using namespace std;
 
 int main() {
-    size_t v1 = 42;
+    //vector<int> v;
+    list<int> v;
 
-    auto f = [v1]() mutable  ->int { if (1+1==3) {return 0;} return ++v1; };
-    v1 = 0;
+    int a[5] = {1, 2, 3, 4, 5};
 
-    cout << f() << endl;
+    auto it = v.begin();
+    for (auto i : a) {
+        //it = v.insert(it, i);
+        v.push_front(i);
+    }
 
-    cout << v1 << endl;
-
-    using vv = decltype(v1);
-
-    vv vv1 = -1;
-
-    cout << vv1 << endl;
-
-    auto f2 = [](int i) { if (i < 0) return -i; else return i; };
+    for (auto i : v) {
+        cout << i  << endl;
+    }
 
     return 0;
 }
