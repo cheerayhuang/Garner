@@ -12,6 +12,7 @@
  **************************************************************************/
 
 #include <vector>
+#include <array>
 #include <iostream>
 #include <list>
 
@@ -25,13 +26,21 @@ int main() {
 
     auto it = v.begin();
     for (auto i : a) {
-        //it = v.insert(it, i);
-        v.push_front(i);
+        it = v.insert(it, i);
+        //v.push_front(i);
     }
 
     for (auto i : v) {
         cout << i  << endl;
     }
+
+    array<int, 5> b {1, 2, 3, 4, 5};
+
+    array<int, 5> c;
+
+    c = b;
+
+    cout << c[1] << endl;
 
     return 0;
 }

@@ -51,6 +51,17 @@ int main() {
     cout << *r << endl;
     cout << *r.base() << endl;
     cout << string(r.base(), str.cend()) << endl;
+
+    int it = 0;
+    istringstream in_stream{"1 2 3 4"};
+    while ( it++ < 10) {
+        istream_iterator<int> in(in_stream), eof;
+
+        while(in != eof) {
+            cout << *in++ << ' ';
+        }
+    }
+
     return 0;
 }
 
