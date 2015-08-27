@@ -2,7 +2,7 @@
  *
  * Copyright (c) 2014 Nibirutech, Inc. All Rights Reserved
  * www.Nibirutech.com
- * 
+ *
  * @file: map.cc
  * @author: Huang Qiyu
  * @email: huangqiyu@chukong-inc.com
@@ -11,23 +11,81 @@
  *
  **************************************************************************/
 #include <iostream>
-#include <map> 
+#include <map>
+#include <unordered_map>
 #include <set>
 #include <vector>
 #include <algorithm>
 
-using namespace std; 
+using namespace std;
+
+class A{
+    private:
+        int i;
+    public:
+        A(int k, int) { i = k; }
+        bool operator < (const A& a) const {
+            return i < a.i;
+        }
+
+        bool operator == (const A& a) const {
+            return i == a.i;
+        }
+
+        int GetI() {
+            return i;
+        }
+};
+
+class B {
+
+    public:
+
+};
 
 int main() {
 
-    vector<pair<int, int>> v; 
-    map<int ,int > m (v.begin() , v.end());
-    set<int> s;
-    find_if(m.begin(), m.end(), [](const pair<const int, int> ){ return true; });
-    find(s.begin(), s.end(), 0);
+    vector<pair<int, int>> v;
+    map<int ,int> m (v.begin() , v.end());
+    set<int> s {0};
+    m[0] = -1;
+    auto res_map = find_if(m.begin(), m.end(),
+                           [](pair<int, int>p) {
+                               if (p.first == 0 && p.second == -1) {
+                                   cout << "hello world";
+                                   return true;
+                               }
 
+                               return false;
+                           });
+    auto res_set = find(s.begin(), s.end(), 0);
+
+    if (res_map == m.end()) {
+        cout << "find nothing in map." << endl;
+    }
+
+    if (res_set == s.end()) {
+        cout << "find nothing in set." << endl;
+    }
+
+    map<A, int> m_classA;
+    m_classA.emplace(A(5, 10), 10);
+    m.emplace(-1, 2);
+
+    A a(5,10);
+
+    cout << m_classA[a] << endl;
+
+    vector<A> vec_classA;
+
+    auto it = vec_classA.emplace(vec_classA.begin(), 5, 10);
+    vec_classA.emplace(it, 4, 10);
+
+    cout << vec_classA.begin()->GetI() << ' ' << (vec_classA.begin()+1)->GetI() << endl;
+
+    /*unordered_map<A, int> uord_m;
+    uord_m.emplace(A(5,10), 10);
+    */
 
     return 0;
 }
-
-

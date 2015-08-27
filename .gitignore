@@ -11,4 +11,5 @@
 *.la
 *.a
 
+c++_primer_ex/*
 !c++_primer_ex/*.cc
