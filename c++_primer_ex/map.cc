@@ -73,8 +73,14 @@ int main() {
     m.emplace(-1, 2);
 
     A a(5,10);
+    A a2(6, 11);
+
+    m_classA.emplace_hint(m_classA.begin(), make_pair<A, int>(A(6, 11), 11));
+    m_classA.insert(m_classA.begin(), make_pair<A, int>(A(7,12), 12));
 
     cout << m_classA[a] << endl;
+    cout << m_classA[a2] << endl;
+    cout << m_classA[A(7,12)] << endl;
 
     vector<A> vec_classA;
 
