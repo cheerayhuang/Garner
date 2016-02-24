@@ -12,25 +12,27 @@
  **************************************************************************/
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 class A {
     public:
-        //A(int) {}
-        //A(initializer_list<int> il) {}
+        A(int) { cout << "hello A()" << endl; }
+        //A(initializer_list<int> il) { cout << "hello il" << endl; }
         int i, j, k =4; // it equals to A():k(4) {}
         A():k(5) {}
 };
 
 int main() {
-    //A a = {1, 2, 3};
-    A a;
+    A a = {1};
+    //A a;
 
     cout << a.k << endl;
+    cout << a.i << endl;
+
+    vector<char> v_char = {'a', 'b', 'c'};
+    vector<char> v_char2 = {10, 'b'};
 
     return 0;
 }
-
-
-

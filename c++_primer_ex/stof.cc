@@ -3,36 +3,37 @@
  * Copyright (c) 2014 Nibirutech, Inc. All Rights Reserved
  * www.Nibirutech.com
  *
- * @file: lamabda2.cc
+ * @file: stof.cc
  * @author: Huang Qiyu
  * @email: huangqiyu@chukong-inc.com
- * @date: 11-07-2014 10:00:50
+ * @date: 12-07-2015 16:56:30
  * @version $Revision$
  *
  **************************************************************************/
-
+#include <string>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
+
 int main() {
-    size_t v1 = 42;
 
-    auto f = [v1]() mutable  ->int { if (1+1==3) {return 0;} return ++v1; };
-    //v1 = 0;
+    string str = "0.7";
+    istringstream ss(str);
 
-    cout << f() << endl;
+    float f = stof(str);
 
-    cout << v1 << endl;
+    cout << f << endl;
 
-    using vv = decltype(v1);
+    float f2;
+    ss >> f2;
 
-    vv vv1 = -1;
+    cout << f2 << endl;
 
-    cout << vv1 << endl;
-
-    auto f2 = [](int i) { if (i < 0) return -i; else return i; };
 
     return 0;
 }
+
+
 

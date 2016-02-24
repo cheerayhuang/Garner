@@ -3,35 +3,37 @@
  * Copyright (c) 2014 Nibirutech, Inc. All Rights Reserved
  * www.Nibirutech.com
  *
- * @file: lamabda2.cc
+ * @file: ex13_14.cc
  * @author: Huang Qiyu
  * @email: huangqiyu@chukong-inc.com
- * @date: 11-07-2014 10:00:50
+ * @date: 02-24-2016 10:47:18
  * @version $Revision$
  *
  **************************************************************************/
+
 
 #include <iostream>
 
 using namespace std;
 
+class num {
+public:
+    int no;
+
+public:
+    num(): no(1234) {}
+    num(const num& n2) : no(5678) {}
+
+    num& operator=(const num&) = default;
+};
+
+void f (const num& s) { cout << s.no << endl; }
+
+
 int main() {
-    size_t v1 = 42;
 
-    auto f = [v1]() mutable  ->int { if (1+1==3) {return 0;} return ++v1; };
-    //v1 = 0;
-
-    cout << f() << endl;
-
-    cout << v1 << endl;
-
-    using vv = decltype(v1);
-
-    vv vv1 = -1;
-
-    cout << vv1 << endl;
-
-    auto f2 = [](int i) { if (i < 0) return -i; else return i; };
+    num a, b = a, c =b;
+    f(a); f(b); f(c);
 
     return 0;
 }
