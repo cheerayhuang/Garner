@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 /**************************************************************************
  *
  * Copyright (c) 2014 Nibirutech, Inc. All Rights Reserved
  * www.Nibirutech.com
- * 
+ *
  * @file: lambda.cc
  * @author: Huang Qiyu
  * @email: huangqiyu@chukong-inc.com
@@ -12,24 +11,30 @@
  *
  **************************************************************************/
 
-#include <iostream> 
+#include <iostream>
 #include <functional>
 
-using namespace std; 
+using namespace std;
 
 auto func(int i) -> function<void()> {
 
-    return [&] {cout << i << endl;};
+    int k = i;
+
+    return [&] {cout << k << endl; };
 }
 
 int main() {
 
     int k;
-    
-    auto f = [k] {int j = 1+1; return k;};
 
-    //cout << f() << endl;
+    auto f = [&k] {int j = 1+1; k = 10; return k;};
 
+    // value copy
+    cout << f() << endl;
+
+    cout << k << endl;
+
+    // ref copy
     auto f1 = func(10);
 
     f1();
@@ -40,4 +45,3 @@ int main() {
 
     return 0;
 }
-

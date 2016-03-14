@@ -42,6 +42,14 @@ func_point_type * return_a_func() {
     return [](int) {};
 }
 
+
+
+void test_ref(int *& i) {
+    *i = 11;
+    static int st = 1024;
+    i = &st;
+}
+
 int main() {
 
     foo<int>();
@@ -54,6 +62,13 @@ int main() {
     //constexpr int ii = returnI(k);
     //
 
+    int o = 10;
+    int *p = &o;
+
+    test_ref(p);
+
+    cout << o << endl;
+    cout  << *p << endl;
 
     return 0;
 }
