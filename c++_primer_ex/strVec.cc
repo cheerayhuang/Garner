@@ -93,12 +93,17 @@ void StrVec::Free() {
 
 void StrVec::Reallocate() {
     auto new_elements = alloc.allocate(capacity() * 2);
-    auto new_first_free = uninitialized_copy(begin(), end(), new_elements);
+    //auto new_first_free = uninitialized_copy(begin(), end(), new_elements);
+
+    auto n = new_elements;
+    auto o = elements;
+    while (o != first_free)
+        alloc.construct(n++, std::move(*o++));
 
     Free();
 
     elements = new_elements;
-    first_free = new_first_free;
+    first_free = n;
     cap = elements + size()*2;
 }
 
