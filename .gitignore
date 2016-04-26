@@ -13,3 +13,8 @@
 
 c++_primer_ex/*
 !c++_primer_ex/*.cc
+!c++_primer_ex/*.h
+!c++_primer_ex/*.hpp
+!c++_primer_ex/*.c
+!c++_primer_ex/*.cpp
+
