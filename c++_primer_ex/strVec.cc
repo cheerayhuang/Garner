@@ -47,11 +47,15 @@ public:
     }
     ~StrVec();
 
+    template<typename... ARGS>
+    void emplace_back(ARGS&&... args);
     void push_back(const string&);
     size_t size() const { return first_free - elements; }
     size_t capacity() const { return cap - elements; }
     string* begin() const { return elements; }
     string* end() const { return first_free; }
+
+
 
 private:
     static allocator<string> alloc;
@@ -99,6 +103,12 @@ void StrVec::push_back(const string& s) {
     alloc.construct(first_free++, s);
 }
 
+template<typename... ARGS>
+void StrVec::emplace_back(ARGS&&...args) {
+    CheckAlloc();
+    alloc.construct(first_free++, std::forward<ARGS>(args)...);
+}
+
 void StrVec::Free() {
     for (auto p = elements; p != first_free; ++p)
         alloc.destroy(p);
@@ -134,6 +144,10 @@ int main() {
         cout << i << endl;
     }
 
+    cout << s.capacity() << endl;
+    s.emplace_back(10, 'c');
+
+    cout << *(s.end()-1) << endl;
     cout << s.capacity() << endl;
 
     return 0;
