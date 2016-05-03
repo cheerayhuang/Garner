@@ -20,3 +20,6 @@ c++_primer_ex/*
 
 uva/chap9/*
 !uva/chap9/*.cc
+
+unix/*
+!unix/*.c
