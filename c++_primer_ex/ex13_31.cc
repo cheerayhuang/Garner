@@ -12,6 +12,8 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -25,6 +27,14 @@ public:
 
     //HasPtr & operator=(const HasPtr&);
     HasPtr & operator=(HasPtr);
+
+    /*friend bool operator<(const HasPtr& h1, const HasPtr& h2) {
+        return h1.i < h2.i;
+    }*/
+
+    bool operator<(const HasPtr& h1) const {
+        return i < h1.i;
+    }
 
     ~HasPtr() { delete ps; }
 
@@ -96,6 +106,16 @@ int main() {
     swap(h4, h2);
 
     cout << h4.i << endl;
+
+    h1.i = 1;
+    h3.i = 2;
+
+    cout << "sort begin..." << endl;
+    vector<HasPtr> v {h2, h3, h1, h4};
+
+    sort(v.begin(), v.end());
+
+    cout << v[0].i << endl;
 
     return 0;
 }
