@@ -15,6 +15,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -110,9 +111,12 @@ void StrVec::emplace_back(ARGS&&...args) {
 }
 
 void StrVec::Free() {
-    for (auto p = elements; p != first_free; ++p)
+    /*for (auto p = elements; p != first_free; ++p)
         alloc.destroy(p);
     alloc.deallocate(elements, capacity());
+    */
+
+    for_each(elements, first_free, [&](decltype(*elements) p)->void { alloc.destroy(&p); });
 }
 
 void StrVec::Reallocate() {
