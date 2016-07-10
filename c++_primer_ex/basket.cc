@@ -47,7 +47,9 @@ public:
         return *this;
     }
 
-    ~Quote() = default;
+    ~Quote() {
+        cout << "~Quote()" << endl;
+    }
 
 public:
     string Isbn() { return isbn; }
