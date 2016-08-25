@@ -65,9 +65,9 @@ int main() {
     strcpy(chs2, "world");
     char *chs3 = new char[6];
     strcpy(chs3, "world");
-    vector<const char*> v_chars = {chs1, chs2, chs3};
+    vector<char*> v_chars = {chs1, chs2, chs3};
     const char* ptr_chars = "world";
-    cout << count(v_chars, ptr_chars) << endl;
+    cout << count(v_chars, chs3) << endl;
 
     delete chs1;
     delete chs2;

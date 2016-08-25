@@ -31,7 +31,8 @@ TextQuery::TextQuery(ifstream &infile) : text(new vector<string>()) {
     while (getline(infile, line)) {
         text->push_back(line);
         string tmp(line.length(), char());
-        transform(line.begin(), line.end(), tmp.begin(), [](char ch) -> char { if ((ch < 65 || (ch > 90 && ch < 97) || ch > 122) && ch != ' ') return char(); return ch;});
+        transform(line.begin(), line.end(), tmp.begin(), [](char ch) -> char { if ((ch < 65 || (ch > 90 && ch < 97) || ch > 122) && ch != ' ') return ' '; return ch;});
+        cout << tmp << endl;
         istringstream iss(tmp);
         string s;
         while(iss >> s) {
@@ -43,6 +44,12 @@ TextQuery::TextQuery(ifstream &infile) : text(new vector<string>()) {
             }
         }
     }
+
+    for (auto iter = dir.begin(); iter != dir.end(); ++iter) {
+        cout << iter->first << endl;
+    }
+
+    cout << dir.count("world") << endl;
 }
 
 class QueryResult {

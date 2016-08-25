@@ -5,7 +5,7 @@
 using namespace std;
 
 template<typename T>
-string DebugRep(const T& t) {
+string DebugRep(T t) {
     ostringstream out;
 
     out << t;
@@ -38,17 +38,17 @@ string DebugRep<const char>(const char *p) {
     return DebugRep(string(p));
 }*/
 
-template<>
+/*template<>
 string DebugRep<const char*>(const char* const &t) {
     return DebugRep(string(t));
-}
+}*/
 
 int main() {
     int i = 10;
-    cout << DebugRep(i) << endl;
+    //cout << DebugRep(i) << endl;
 
     int *pi = &i;
-    cout << DebugRep(pi) << endl;
+    //cout << DebugRep(pi) << endl;
 
     cout << DebugRep(static_cast<const char*>("hello world!")) << endl;
 

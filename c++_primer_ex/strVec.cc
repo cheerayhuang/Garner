@@ -73,7 +73,7 @@ private:
     string* cap;
 };
 
-allocator<string> StrVec::alloc;
+allocator<string> StrVec::alloc = allocator<string>();
 
 StrVec::StrVec(const StrVec &s) {
     auto p = alloc.allocate(s.capacity());
@@ -116,17 +116,15 @@ void StrVec::Free() {
     alloc.deallocate(elements, capacity());
     */
 
-    for_each(elements, first_free, [&](decltype(*elements) p)->void { alloc.destroy(&p); });
+    for_each(elements, first_free, [&](decltype(elements[0]) p)->void { alloc.destroy(&p); });
+    alloc.deallocate(elements, capacity());
 }
 
 void StrVec::Reallocate() {
     auto new_elements = alloc.allocate(capacity() * 2);
     //auto new_first_free = uninitialized_copy(begin(), end(), new_elements);
 
-    auto n = new_elements;
-    auto o = elements;
-    while (o != first_free)
-        alloc.construct(n++, std::move(*o++));
+    auto n = uninitialized_copy(make_move_iterator(begin()), make_move_iterator(end()), new_elements);
 
     Free();
 
@@ -153,6 +151,11 @@ int main() {
 
     cout << *(s.end()-1) << endl;
     cout << s.capacity() << endl;
+    cout << s.size() << endl;
+
+    s.push_back("world!");
+    cout << s.capacity() << endl;
+    cout << s.size() << endl;
 
     return 0;
 }
