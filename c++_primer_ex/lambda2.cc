@@ -41,10 +41,21 @@ int main() {
     cout << vv1 << endl;
 
     auto f2 = [](int i) { if (i < 0) return -i; else return i; };
+    auto f3 = [](int i) { if (i < 0) return "neg"; else return "pos"; };
 
 
     L l(v1);
     l.func();
+
+    auto r1 = f3(5);
+    string f4 = r1;
+
+    int i;
+    int &rs1 = i;
+    (i) = 5;
+
+    f4 = "hello";
+
 
     cout << v1 << endl;
 
