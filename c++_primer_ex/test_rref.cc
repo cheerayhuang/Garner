@@ -28,6 +28,13 @@ int&  GetInt() {
     return i;
 }
 
+class B {
+public:
+    void func() & { cout << "const &&" << endl; }
+
+    void func() && { cout << "&&" << endl; }
+};
+
 int main() {
 
     A a1;
@@ -53,6 +60,11 @@ int main() {
     A a5 = a4;
 
     //GetInt() = 6;
+    //
+    B().func();
+
+    B b;
+    //b.func();
 
     return 0;
 }
