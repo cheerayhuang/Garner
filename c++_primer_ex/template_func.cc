@@ -8,22 +8,31 @@ template <typename T> void func(const T& val) {
 }
 
 class A {
+
+public:
+    A() = default;
+    ~A() = default;
+
+    int i;
+
 };
 
-template <int D, A& PA>
+template <int D, A& ra>
 void func2() {
     cout << D << endl;
+    cout << ra.i << endl;
 }
 
-A a;
 
-static const A& ra = a;
+A a;
 
 int main() {
 
     func(5);
 
-    func2<5, ra>();
+    A& ra = a;
+
+    func2<5, a>();
 
     return 0;
 }

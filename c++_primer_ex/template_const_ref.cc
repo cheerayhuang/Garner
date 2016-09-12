@@ -14,10 +14,10 @@
 
 using namespace std;
 
-/*template <typename T>
+template <typename T>
 void func(const T& t) {
     cout << t << endl;
-}*/
+}
 
 template <typename T>
 void func(T&& t) {
@@ -25,9 +25,9 @@ void func(T&& t) {
 
 }
 
-void func(int &&& t) {
+/*void func(int &&& t) {
     cout << "int && " << t << endl;
-}
+}*/
 
 int main() {
     const int i = 5;

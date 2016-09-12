@@ -2,6 +2,8 @@
 
 using namespace std;
 
+
+
 template <typename FN,  typename T1, typename T2>
 void forwarder(FN fn, T1&& t1, T2&& t2) {
     fn(std::forward<T1>(t1), std::forward<T2>(t2));
@@ -29,6 +31,7 @@ int main() {
 
     forwarder(func2, std::move(i), 3.5);
     cout << i << endl;
+
 
     return 0;
 }
