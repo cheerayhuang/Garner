@@ -40,10 +40,10 @@ int main() {
     cout << "find_if_not:" << endl;
     cout << *find_if_not(a.begin(), a.end(), [](int i) { return i % 2 ==0; }) << endl;
 
-    vector<int> b = {6, 8};
+    vector<int> b = {8};
     vector<int> c = {7, 8, 7, 8, 7, 8};
     cout << "find_end:" << endl;
-    cout << (find_end(c.begin(), c.end(), b.begin(), b.end())- c.begin()) << endl;
+    cout << (find_end(c.begin(), c.end(), b.rbegin(), b.rend())- c.begin()) << endl;
     cout << "find_first_of:" << endl;
     cout << (find_first_of(c.begin(), c.end(), b.begin(), b.end())- c.begin()) << endl;
 
@@ -79,7 +79,7 @@ int main() {
     cout << "copy:" << endl;
     copy(d.begin(), d.end(), back_inserter(e));
     cout << "transform:" << endl;
-    transform(e.begin(), e.end(), e.begin(), [](int i) { cout << i << endl;  return i;});
+    transform(e.begin(), e.end(), e.begin(), [](int i) { cout << i << endl; return i;}); // reture value is required.
     cout << "copy_n:" << endl;
     ostream_iterator<int> o(cout, "\n");
     copy_n(e.begin(), 2, o);
