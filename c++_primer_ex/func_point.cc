@@ -50,6 +50,16 @@ void test_ref(int *& i) {
     i = &st;
 }
 
+void FuncInt(int) {
+    cout << "FuncInt" << endl;
+}
+
+class A {
+public:
+    static void FuncInt(int) { cout << "A::FuncInt" << endl; }
+    void FuncInt2(int) { cout << "A::FuncInt not static" << endl; }
+};
+
 int main() {
 
     foo<int>();
@@ -69,6 +79,15 @@ int main() {
 
     cout << o << endl;
     cout  << *p << endl;
+
+    func_point_type *p_func = &::FuncInt;
+    p_func(5);
+
+    p_func = &A::FuncInt;
+    p_func(5);
+
+    using class_func_type = void (A::*) (int);
+    class_func_type p_class = &A::FuncInt2;
 
     return 0;
 }

@@ -6,7 +6,8 @@ using namespace std;
 
 template <typename FN,  typename T1, typename T2>
 void forwarder(FN fn, T1&& t1, T2&& t2) {
-    fn(std::forward<T1>(t1), std::forward<T2>(t2));
+    //fn(std::forward<T1>(t1), std::forward<T2>(t2));
+    fn(std::forward<T1>(t1), t2);
 }
 
 void func1(int &i, double d) {

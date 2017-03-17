@@ -26,13 +26,18 @@ void func2() {
 
 A a;
 
+extern template void func<double>(const double& val);
+
+//extern template void func (const double&);
+
 int main() {
 
-    func(5);
+    func<>(5);
 
     A& ra = a;
 
     func2<5, a>();
+
 
     return 0;
 }

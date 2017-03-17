@@ -29,6 +29,21 @@ void func(T&& t) {
     cout << "int && " << t << endl;
 }*/
 
+
+template <int N>
+void print(const char (&str)[N]) {
+    cout << "const char[]" << endl;
+}
+
+template <typename T>
+void print(T) {
+    cout << "const char*" << endl;
+}
+
+template <typename T>
+void covert(T* t) {
+}
+
 int main() {
     const int i = 5;
     func(i);
@@ -36,6 +51,13 @@ int main() {
     func(5);
 
     //int && ri = i;
+    //
+    const char str[6] = "hello";
+    print(str);
+
+    const int a[5] {0};
+
+    covert(a);
 
     return 0;
 }

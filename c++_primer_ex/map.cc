@@ -23,6 +23,7 @@ class A{
     private:
         int i;
     public:
+        A() {}
         A(int k, int) { i = k; }
         bool operator < (const A& a) const {
             return i < a.i;
@@ -30,6 +31,11 @@ class A{
 
         bool operator == (const A& a) const {
             return i == a.i;
+        }
+
+        friend ostream & operator << (ostream &os, const A& a) {
+            os << "this is a";
+            return os;
         }
 
         int GetI() {
@@ -92,6 +98,12 @@ int main() {
     /*unordered_map<A, int> uord_m;
     uord_m.emplace(A(5,10), 10);
     */
+
+
+
+    map<int, A> null_map;
+
+    cout << null_map[5] << endl;
 
     return 0;
 }

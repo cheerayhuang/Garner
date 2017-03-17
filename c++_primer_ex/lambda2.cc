@@ -43,6 +43,9 @@ int main() {
     auto f2 = [](int i) { if (i < 0) return -i; else return i; };
     auto f3 = [](int i) { if (i < 0) return "neg"; else return "pos"; };
 
+    int k = 1;
+    auto f5 = [&k]() { k++; };
+
 
     L l(v1);
     l.func();
@@ -56,8 +59,14 @@ int main() {
 
     f4 = "hello";
 
-
     cout << v1 << endl;
+
+    k = 100;
+    f5();
+
+    cout << k  << endl;
+    f5();
+    cout << k  << endl;
 
     return 0;
 }

@@ -17,10 +17,31 @@
 using namespace std;
 
 
+namespace test {
+    int i;
+    void func() {
+        test::i = 10;
+    }
+}
 
+int func(const string&) {
+    return 10*10;
+}
+
+class Init {
+public:
+    Init() {
+        using namespace test;
+        func();
+    }
+};
+
+Init init;
 
 int main() {
 
+    //test::func();
+    cout << test::i << endl;
     vector<uint8_t> vec{1, 2, 3, 4, 5, 0};
 
     string  str;
@@ -35,6 +56,10 @@ int main() {
         cout << static_cast<int>(i) << endl;
     }
 
+    str = string("hello");
+    void *p = &str;
+
+    cout << *static_cast<string*>(p) << endl;
 
     return 0;
 }
