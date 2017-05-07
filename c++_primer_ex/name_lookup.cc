@@ -16,11 +16,16 @@
 
 using namespace std;
 
-int height;
 
 using ext_type = double;
 
-class Screen {
+class Base {
+    protected:
+        int height = 0;
+
+};
+
+class Screen: public Base {
 public:
     using pos = std::string::size_type;
 
@@ -31,11 +36,15 @@ public:
     //using ext_type = int;
 };
 
+
+//int height;
 Screen::pos verify(Screen::pos) {};
 
 void Screen::setHeight(pos var) {
     height = verify(var);
 }
+
+
 
 /*void func1() {
     func2();
@@ -61,7 +70,9 @@ int B::i;
 int main() {
     B b;
     b.func();
+
+    Screen sc;
+
     return 0;
 }
-
 
