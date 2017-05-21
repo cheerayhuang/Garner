@@ -1,15 +1,15 @@
-#include <iostream> 
+#include <iostream>
 
-using namespace std; 
+using namespace std;
 
 class Constexpr {
 
-private: 
-    int i; 
+private:
+    int i;
     char c;
     double d;
 
-public: 
+public:
 
     constexpr Constexpr() : i(1), c(48), d(3.5d) {
     }
@@ -22,20 +22,39 @@ public:
 
 };
 
+
+
+struct Base {
+int i = 10;
+
+Base(): i(1024) {}
+
+operator int() {
+    return i;
+}
+
+};
+
 constexpr int func(int i) {
     return i;
 }
 
 int main() {
-    constexpr Constexpr c = 5;
+    int k = 5;
+    //constexpr Constexpr c(k);
+    Constexpr c(k);
+    int i = 10;
+    //constexpr int j = c;
 
-    int i = 10; 
-    //constexpr Constexpr c2 = i;
+    Base b;
 
-    constexpr int j = c;
+    cout << b.i << endl;
 
-    //constexpr int k = func(i);
-    
+    //constexpr int a[b]{1, 2, 3}; // error: because  Base is not a constexpr Class.
+   // constexpr int a[c]{1, 2, 3};
+    //const int arr[b] = {1};
+
+
     return 0;
 }
 
