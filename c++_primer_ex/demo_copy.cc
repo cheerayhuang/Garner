@@ -19,7 +19,20 @@ using namespace std;
 
 class A {
     public:
-        ~A() = delete;
+//        A() = default;
+        A() { cout << "A()" << endl; }
+        A(const A&) = delete;
+
+        virtual ~A() { cout << "~A()" << endl; }
+
+};
+
+class B : public A {
+    public:
+        B() = default;
+        B(const B&) = default;
+
+        ~B() = default;
 };
 
 int& func () {
@@ -37,6 +50,14 @@ int main () {
     v = 1024;
 
     func();
+
+    A a;
+
+    //B b;
+//    B b1(b);
+
+    A *pb = new B();
+    delete pb;
 
     return 0;
 

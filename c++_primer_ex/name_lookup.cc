@@ -25,6 +25,7 @@ class Base {
 
 };
 
+
 class Screen: public Base {
 public:
     using pos = std::string::size_type;
@@ -36,6 +37,16 @@ public:
     //using ext_type = int;
 };
 
+
+ext_type Screen::setWidth(pos) {
+    // only if this function is defined within class, it can be found .
+    //Globalfunc();
+}
+
+/*
+void Globalfunc() {
+}
+*/
 
 //int height;
 Screen::pos verify(Screen::pos) {};
