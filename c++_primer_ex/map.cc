@@ -46,7 +46,15 @@ class A{
 class B {
 
     public:
+        /*
+        void func() {
+            B * k = this;
+            cout << "non const " << endl;
+        }*/
 
+        void func() const {
+            cout << "const " << endl;
+        }
 };
 
 int main() {
@@ -104,6 +112,19 @@ int main() {
     map<int, A> null_map;
 
     cout << null_map[5] << endl;
+
+    const map<int, int> c_map {{1,1}, {1,2}};
+
+    for (auto m : c_map) {
+        cout << m.first << ' ' << m.second << endl;
+    }
+
+    c_map.at(1) ;
+
+    const B b;
+    //b.func(); // compile error if func is not a const memeber function.
+
+    b.func();
 
     return 0;
 }
