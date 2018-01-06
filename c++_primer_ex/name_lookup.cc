@@ -19,9 +19,19 @@ using namespace std;
 
 using ext_type = double;
 
+class Screen;
+
 class Base {
     protected:
         int height = 0;
+
+        using myfloat = float;
+
+        // myfloat can't be found, cause the name is in parameter declaration, it can only be found before.
+        void func(Base::myfloat) {}
+
+        // this statement should be move up.
+        //using myfloat = float;
 
 };
 
@@ -29,6 +39,7 @@ class Base {
 class Screen: public Base {
 public:
     using pos = std::string::size_type;
+    using myfloat = float;
 
     void setHeight(pos);
     pos Height = 0;
@@ -37,16 +48,16 @@ public:
     //using ext_type = int;
 };
 
+void Globalfunc();
 
 ext_type Screen::setWidth(pos) {
     // only if this function is defined within class, it can be found .
-    //Globalfunc();
+    Globalfunc();
 }
 
-/*
 void Globalfunc() {
 }
-*/
+
 
 //int height;
 Screen::pos verify(Screen::pos) {};
@@ -84,6 +95,14 @@ int main() {
 
     Screen sc;
 
+    // c++ has a very strict rule to force you to declare a func.
+    // in c, a implicit declaration will be generated.
+    //foo();
+
     return 0;
 }
 
+/*
+void foo() {
+
+}*/
