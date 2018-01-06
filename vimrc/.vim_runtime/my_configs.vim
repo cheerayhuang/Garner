@@ -13,3 +13,6 @@ source ~/.vim_runtime//template_loader.vim
 
 "trim reducdant spaces in tail.
 autocmd BufWrite * execute ":%s/[\t ]*$//g"
+
+"keep 72 bytes at most per line in git commit message
+autocmd Filetype gitcommit setlocal spell textwidth=72
