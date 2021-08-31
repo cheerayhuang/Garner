@@ -15,8 +15,13 @@
 #include <array>
 #include <iostream>
 #include <list>
+#include <unordered_map>
 
 using namespace std;
+
+void func(int* a) {
+
+}
 
 int main() {
     //vector<int> v;
@@ -41,6 +46,13 @@ int main() {
     c = b;
 
     cout << c[1] << endl;
+
+    func(a);
+
+    unordered_map<int, int> u;
+
+    if (5 not in u) {
+    }
 
     return 0;
 }
