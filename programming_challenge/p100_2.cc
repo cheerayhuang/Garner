@@ -66,5 +66,7 @@ int main() {
         }
     }*/
 
+
+    vector<char> arr(1000000000, 10);
     return 0;
 }

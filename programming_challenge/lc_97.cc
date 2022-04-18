@@ -1,37 +1,47 @@
 #include <iostream>
 #include <string>
-#include <unordered_map>
+#include <queue>
+#include <vector>
 
 using namespace std;
 
 class Solution {
 public:
     bool isInterleave(string s1, string s2, string s3) {
-
-        //string::iterator cur_s1_iter = s1.begin();
-        //string::iterator cur_s2_iter = s2.begin();
-        //
-        auto cur_s1_pos = -1;
-        auto cur_s2_pos = -1;
-
-        for (auto beg = s3.begin(); beg != s3.end(); ++beg) {
-
-            auto p1 = s1.find(*beg, cur_s1_pos+1);
-            if (p1 != string::npos) {
-                cur_s1_pos = p1;
-                continue;
-            }
-
-            auto p2 = s2.find(*beg, cur_s2_pos+1);
-            if (p2 != string::npos) {
-                cur_s2_pos = p2;
-                continue;
-            }
-
-            return false;
+        auto l1 = s1.length();
+        auto l2 = s2.length();
+        if (s1.length() == 0 && s3 == s2) {
+            return true;
         }
 
-        return true;
+        if (s2.length() == 0 && s3 == s1) {
+            return true;
+        }
+
+        vector<vector<bool>> result = {l1, vector<bool>(l2, false)};
+
+        result[0][0] = true;
+        size_t t1 = 0, t2 = 0;
+
+        queue<pair<int, int>> q;
+
+        while (t1 + t2 >= s3.length() || q.empty()) {
+            if (t1+1 <= s1.length()) {
+                result[t1+1][t2] = (result[t1][t2] && (s1[t1] == s3[t1+t2]))
+                if (result[t1+1][t2]) {
+                    q.push(make_pair(t1+1, t2));
+                }
+            }
+            if (t2+1 <= s2.length()) {
+                result[t1][t2+1] = (result[t1][t2] && (s2[t2] == s3[t1+t2]))
+                if (result[t1][t2+1]) {
+                    q.push(make_pair(t1+1, t2));
+                }
+            }
+
+        }
+
+
     }
 };
 

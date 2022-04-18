@@ -14,10 +14,26 @@
 
 using namespace std;
 //相同的内存地址
+//
+
+
+struct Pointer1 {
+    const char *a;
+    const char *b;
+
+};
+
+struct Pointer2 {
+    int *i;
+};
+
 union myun
 {
     struct { int x; int y; int z; }u;
     int k;
+
+    Pointer1 p1;
+    Pointer2 p2;
 }a;
 
 class A {
@@ -45,6 +61,8 @@ class B : private A {
 
 int main()
 {
+    cout << sizeof(a) << endl;
+    cout << sizeof(int*) << endl;
     a.u.x =4;
     a.u.y =5;
     a.u.z =6;
@@ -80,6 +98,12 @@ std::cout << "hello list"<< std::endl;
     (void) std::vector<int>{};
 
     cout <<(5,6) << endl;
+
+    int *ptr_arr = new int[1];
+    ptr_arr[0] = 1024;
+    cout << *(ptr_arr) << endl;
+
+    delete [] ptr_arr;
 
     return 0;
 }

@@ -132,6 +132,11 @@ int main() {
     //r.set(Content{"x", "y", 0.2});
 
     //cout << r["y"].value << endl;
+    //
+
+    int m , n;
+    cin >> m >> n;
+    int arr[m][n];
 
     return 0;
 }

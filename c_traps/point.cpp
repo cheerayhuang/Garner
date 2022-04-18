@@ -1,6 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
+#include <vector>
+
+
+using namespace std;
 
 void func(char **arr) {
 
@@ -13,10 +18,6 @@ void func2(int(*arr)[2]) {
         for(int j = 0; j < 2; ++j) {
             printf("%d, ", *(*(arr+i)+j));
         }
-
-}
-
-void func3() {
 
 }
 
@@ -40,6 +41,18 @@ int main() {
     int a[3][2] = {1,2,3,4,5};
 
     func2(a);
+
+    int(*p)[2]=new int[3][2];
+
+    p = a;
+
+    printf("\n%d\n", *(*(p+1)+1));
+    printf("\n%d\n", *(*(p)+1+1));
+    //printf("\n%d\n", *a);
+
+    vector<int> result(1000000000, 1);
+
+    cout << result.size() << endl;
 
     return 0;
 }
