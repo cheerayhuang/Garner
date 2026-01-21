@@ -61,7 +61,7 @@ class Y<void>::S<int> {
 
     public:
         int i;
-        void print() {}
+        void print() {std::cout << "Y<void>::S<int>" << std::endl;}
 };
 
 template<typename T1 = void, typename T2 = int>
