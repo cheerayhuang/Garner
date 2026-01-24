@@ -21,7 +21,7 @@ class C {
 
 
 template <typename T>
-void f(A<T>, double) {std::cout << "f(double)" << std::endl; }
+void f(/*A<T>,*/ double) {std::cout << "f(double)" << std::endl; }
 
 namespace X  {
     void g(X::C, double) {std::cout << "g(double)" << std::endl;}
@@ -47,11 +47,12 @@ public:
         std::cout << a1*a2 << std::endl;
         // 由于有a1参数的存在，这里的f<T>待决名查找会使用 ADL;
         // 这里会最终打印 f(int)
-        f<T>(a1, 1);
+        // 验证之前修改24行、133行代码
+        //f<T>(a1, 1);
 
         //尽管 f<T> 在这里也是待决名，会延迟到模版实例化时进行名字查找，
         //可参数为基本类型int，所以不会进行ADL查找，因此还是只能找到上面的 f(double)
-        //f<T>(1);
+        f<T>(1);
 
         // 非待决名的函数调用
         g(X::C(), 1);
@@ -129,7 +130,7 @@ int j(E* e, int) {
 }
 
 template <typename T>
-void f(A<T>, int) {std::cout << "f(int)" << std::endl; }
+void f(/*A<T>,*/ int) {std::cout << "f(int)" << std::endl; }
 
 namespace X {
 
