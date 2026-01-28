@@ -58,6 +58,7 @@ int main() {
     Inner::PP p3;
     Inner::operator<<(std::cout, p2);
     Inner::operator<<(std::cout, p3);
+    std::cout << std::endl;
 
     std::cout << "---" << std::endl;
 
