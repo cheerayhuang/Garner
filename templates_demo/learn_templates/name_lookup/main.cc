@@ -75,8 +75,12 @@ class E {
             std::cout << "E::j" << std::endl; 
         }
 
+        friend void j(E* e, long); 
+
         class F;
 };
+
+
 
 //template <typename T>
 int j(E* e, float) {
@@ -109,13 +113,15 @@ class D {
             // 即便有 ADL，还是找不到后面的j(E* , int), ADL的file scope查找依然查找的是 before 之前的。 
             // !!!原因是：模版待决名的查找，伴随着相关模版的实例化
             // 只要是与j相关的模版都会实例化，因此无论放置位置在哪里，都能找到
-            j(new E(), 1);
+            j(new E(), 1L);
 
             //E::F* pf;
             //k(pf, 1);
         }
 
 };
+
+
 
 class E::F {
     public:
@@ -138,6 +144,8 @@ namespace X {
     //void g(E) {std::cout << "g(E) by ADL E" << std::endl;}
 }
 
+
+
 int main() {
     A<int> a1, a2;
 
@@ -157,3 +165,7 @@ int main() {
 }
 
 void h(A<int>, int) {std::cout << "h(int)" << std::endl;}
+
+void j(E* e, long) {
+    std::cout << "E::j(long)" << std::endl;
+}
