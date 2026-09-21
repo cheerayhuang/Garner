@@ -82,7 +82,7 @@ class E {
 
 
 
-//template <typename T>
+template <typename T>
 int j(E* e, float) {
     std::cout << "E::j(float)" << std::endl;
     return 0;
@@ -103,7 +103,8 @@ class D {
 
             j(new E());
             // 尽管有 ADL，对于非待决名，还是找不到后面的 j(E* ,int)
-            //j<int>(new E(), 1);
+            j<int>(new E(), 1);
+            j(new E(), 1);
 
             // 如果把后面的j函数改为模版，类D改为模版，在这里让其成为一个待决名
             // 则可以找到后面的 j(E*, int)
@@ -129,11 +130,7 @@ class E::F {
         friend void k(F*, int) {std::cout << "k(int)" << std::endl;}
 };
 
-//template <typename T>
-int j(E* e, int) {
-    std::cout << "E::j(int)" << std::endl;
-    return 0;
-}
+
 
 template <typename T>
 void f(/*A<T>,*/ int) {std::cout << "f(int)" << std::endl; }
@@ -161,6 +158,12 @@ int main() {
     D d1;
     d1.func();
 
+    return 0;
+}
+
+template <typename T>
+int j(E* e, int) {
+    std::cout << "E::j(int)" << std::endl;
     return 0;
 }
 
